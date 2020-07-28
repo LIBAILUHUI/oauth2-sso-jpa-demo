@@ -1,0 +1,22 @@
+server:
+  port: 6881
+  servlet:
+    context-path: /auth
+
+spring:
+  application:
+    name: sso-auth2-server
+
+  freemarker:
+    allow-request-override: false
+    cache: true
+    check-template-location: true
+    charset: UTF-8
+    suffix: .ftl
+    templateEncoding: UTF-8
+    templateLoaderPath: classpath:/templates/
+    content-type: text/html
+    expose-request-attributes: false
+    expose-session-attributes: false
+    expose-spring-macro-helpers: false
+

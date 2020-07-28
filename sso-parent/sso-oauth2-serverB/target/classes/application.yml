@@ -1,0 +1,41 @@
+# 预定义变量 指向认证服务器
+#auth-server: http://localhost:6881/auth
+auth-server: http://localhost:6881/auth
+server:
+  port: 6883
+  servlet:
+    context-path: /
+  session:
+    cookie:
+      name: MYCOOKIEOATH
+
+security:
+  basic:
+    enabled: false
+  oauth2:
+    client:
+      # 指定注册到认证服务器上客户名称和密码
+      clientId: csdn
+      clientSecret: csdn123
+      accessTokenUri: ${auth-server}/oauth/token
+      userAuthorizationUri: ${auth-server}/oauth/authorize
+    resource:
+      userInfoUri: ${auth-server}/user
+
+
+spring:
+  application:
+    name:sso-resources-serverA
+
+  freemarker:
+    allow-request-override: false
+    cache: true
+    check-template-location: true
+    charset: UTF-8
+    suffix: .ftl
+    templateEncoding: UTF-8
+    templateLoaderPath: classpath:/templates/
+    content-type: text/html
+    expose-request-attributes: false
+    expose-session-attributes: false
+    expose-spring-macro-helpers: false
